@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CKD Prediction Result</title>
+    <style>
+        body { background: linear-gradient(90deg, #e94560 0%, #0f3460 100%); color: #222; font-family: Arial, sans-serif; text-align: center; }
+        .result { margin-top: 100px; background: #fff; display: inline-block; padding: 40px 60px; border-radius: 16px; box-shadow: 0 0 20px #0002; }
+        .positive { color: red; font-size: 2em; }
+        .negative { color: green; font-size: 2em; }
+        .prob { font-size: 1.3em; margin-top: 20px; color: #333; }
+        .btn-home { display: inline-block; margin-top: 30px; padding: 12px 30px; background: #e94560; color: #fff; border: none; border-radius: 8px; font-size: 1.1em; text-decoration: none; }
+        .btn-home:hover { background: #0f3460; }
+    </style>
+</head>
+<body>
+    <div class="result">
+        {% if "Oops" in prediction_text %}
+            <p class="positive"><b>Prediction:</b> {{ prediction_text }}</p>
+        {% else %}
+            <p class="negative"><b>Prediction:</b> {{ prediction_text }}</p>
+        {% endif %}
+        <div class="prob">CKD Probability: <b>{{ probability }}</b></div>
+        <a href="/" class="btn-home">Back to Home</a>
+    </div>
+</body>
+</html>
